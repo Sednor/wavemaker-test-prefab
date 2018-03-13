@@ -26,18 +26,21 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
                     },
                     create: {
                         url: $scope.Variables.updateUrl.getData().dataValue,
-                        type: "post"
+                        type: "post",
+                        dataType: 'json',
+                        contentType: "application/json"
                     },
                     update: {
-                        url: $scope.Variables.updateUrl.getData().dataValue,
-                        type: "update"
+                        url: options => `${$scope.Variables.updateUrl.getData().dataValue}/${options.id}`,
+                        type: "put",
+                        dataType: 'json',
+                        contentType: "application/json"
                     },
                     destroy: {
-                        url: $scope.Variables.updateUrl.getData().dataValue,
+                        url: options => `${$scope.Variables.updateUrl.getData().dataValue}/${options.id}`,
                         type: "delete"
                     },
                     parameterMap: function(data, type) {
-                        console.log(data);
                         if (data.hasOwnProperty("pageSize")) {
                             const DATA = Object.assign({}, data, {
                                 size: data.pageSize
@@ -46,10 +49,17 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
                             DATA.pageSize = undefined;
                             return DATA;
                         }
+                        if (type !== 'read') {
+                            return JSON.stringify(data);
+                        }
                     }
                 },
                 schema: {
-                    data: "content"
+                    data: "content",
+                    model: {
+                        id: $scope.Variables.dataId.getData().dataValue,
+                        fields: $scope.Variables.tableColumns.getData().dataValue
+                    }
                 },
                 serverPaging: true,
                 pageSize: 2,
@@ -60,15 +70,13 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
                 }
                 const OPTIONS = this.getOptions();
 
+                console.log(OPTIONS.schema);
                 this.setOptions(Object.assign({}, OPTIONS, {
                     columns: [].concat(OPTIONS.columns, {
                         command: ["edit", "destroy"]
                     })
                 }));
                 once = true;
-            },
-            saveChanges: function() {
-                console.log('asdasdsdas');
             },
             toolbar: ["create"],
             pageable: {
