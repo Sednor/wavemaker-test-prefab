@@ -1,0 +1,258 @@
+<style id="Main.css">
+.facebook-login-btn.btn, .facebook-login-btn.btn:hover {
+    background-color: #3b5998;
+    color: #fff;
+}
+.facebook-login-btn.btn .btn-caption:not(:empty) {
+    border-left: 0.5px solid rgba(255, 255, 255, 0.34);
+    padding-left: 5px;
+}
+</style>
+<script id="Main.js">
+Application.$controller("FacebookController",["$scope", "Utils", function($scope, Utils) {
+    "use strict";
+    var LOGIN_MODE = {
+            'AUTOMATIC': "auto"
+        },
+        autoLogin = $scope.loginmode === LOGIN_MODE.AUTOMATIC;
+
+    $scope.isInsideIframe = window.self != window.top;
+    /*
+     * This function will be invoked when any of this prefab's property is changed
+     * @key: property name
+     * @newVal: new value of the property
+     * @oldVal: old value of the property
+     */
+    function propertyChangeHandler(key, newVal, oldVal) {
+
+        /*
+         switch (key) {
+         case "prop1":
+         // do something with newVal for property 'prop1'
+         break;
+         case "prop2":
+         // do something with newVal for property 'prop2'
+         break;
+         }
+         */
+
+    }
+    /* register the property change handler */
+    $scope.propertyManager.add($scope.propertyManager.ACTIONS.CHANGE, propertyChangeHandler);
+
+    function toggleSignInButton(enable) {
+        var signInBtn = $scope.Widgets.signInButton.$element;
+        if (!enable) {
+            signInBtn.attr('disabled', 'disabled');
+        } else {
+            signInBtn.removeAttr('disabled');
+        }
+    }
+
+    function openWindow(href) {
+        if (!href) {
+            return;
+        }
+        window.open(href, $scope.isInsideIframe ? '_blank' : '_self', "width=600,height=700");
+    }
+
+    $scope.OAuthHandlerServiceGetLoginURLonSuccess = function(variable, data) {
+        $scope.loginurl = data;
+        toggleSignInButton(!$scope.accesstoken);
+        if (autoLogin && !$scope.accesstoken) {
+            openWindow(data);
+        }
+    };
+
+    function login() {
+        $scope.Widgets.signInButton.$element.click();
+    }
+
+    $scope.onInitPrefab = function() {
+        $scope.login = login;
+    };
+
+    $scope.signInButtonClick = function($event, $isolateScope) {
+        openWindow($scope.loginurl);
+    };
+
+    $scope.OAuthHandlerServiceGetAccessTokenonSuccess = function(variable, data) {
+        var callbackParams;
+        if (data) {
+            $scope.accesstoken = data;
+            $scope.Widgets.signInButton.disabled = true;
+            toggleSignInButton(false);
+            if ($scope.loginsuccessmessage) {
+                $scope.Variables.loginSuccess.invoke();
+            }
+            Utils.triggerFn($scope.onLoginsuccess);
+        } else {
+            if ($scope.isInsideIframe) {
+                callbackParams = JSON.stringify({
+                    'WMOAuthState': true
+                });
+            } else {
+                callbackParams = "csrf8888";
+            }
+            $scope.Variables.OAuthHandlerServiceGetLoginURL.setInput('state', callbackParams);
+            $scope.Variables.OAuthHandlerServiceGetLoginURL.invoke();
+        }
+    };
+
+}]);
+</script>
+<script id="Main.variables.json">
+var _MainPage_Variables_ ={
+  "loginSuccess" : {
+    "_id" : "wm-loginSuccess-wm.NotificationVariable-1487222332822",
+    "name" : "loginSuccess",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "bind:loginsuccessmessage",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "3000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Success",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "OAuthHandlerServiceCallback" : {
+    "_id" : "wm-wm.ServiceVariable1431009822685",
+    "name" : "OAuthHandlerServiceCallback",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : ".void",
+    "service" : "OAuthHandlerService",
+    "operation" : "callback",
+    "operationId" : "OAuthHandlerController_callback",
+    "serviceType" : "JavaService",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onSuccess" : "No Event",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true
+  },
+  "OAuthHandlerServiceGetAccessToken" : {
+    "_id" : "wm-wm.ServiceVariable1431009822682",
+    "name" : "OAuthHandlerServiceGetAccessToken",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "java.lang.String",
+    "service" : "OAuthHandlerService",
+    "operation" : "getAccessToken",
+    "operationId" : "OAuthHandlerController_getAccessToken",
+    "serviceType" : "JavaService",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onSuccess" : "OAuthHandlerServiceGetAccessTokenonSuccess($event, $scope)",
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true
+  },
+  "OAuthHandlerServiceGetCallbackURL" : {
+    "_id" : "wm-wm.ServiceVariable1431009822680",
+    "name" : "OAuthHandlerServiceGetCallbackURL",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "java.lang.String",
+    "service" : "OAuthHandlerService",
+    "operation" : "getCallbackURL",
+    "operationId" : "OAuthHandlerController_getCallbackURL",
+    "serviceType" : "JavaService",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true
+  },
+  "OAuthHandlerServiceGetLoginURL" : {
+    "_id" : "wm-wm.ServiceVariable1431009822685",
+    "name" : "OAuthHandlerServiceGetLoginURL",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "java.lang.String",
+    "service" : "OAuthHandlerService",
+    "operation" : "getLoginURL",
+    "operationId" : "OAuthHandlerController_getLoginURL",
+    "serviceType" : "JavaService",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onSuccess" : "OAuthHandlerServiceGetLoginURLonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true
+  },
+  "supportedLocale" : {
+    "_id" : "wm-wm.Variable1402640443182",
+    "name" : "supportedLocale",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "en" : "English"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  }
+}
+</script>
+<script id="Main.html" type="text/ng-template">
+<wm-page data-ng-controller="FacebookController" name="facebookpage">
+    <wm-content name="prefabview">
+        <wm-button ng-class="buttonclass" caption="bind:buttoncaption" type="button" name="signInButton" on-click="signInButtonClick($event, $scope)" iconclass="fa fa-facebook" show="true" class="facebook-login-btn"></wm-button>
+    </wm-content>
+</wm-page>
+</script>

@@ -1,11 +1,50 @@
 {
-  "supportedLocale" : {
-    "_id" : "wm-wm.Variable1402640443182",
-    "name" : "supportedLocale",
+  "fetchUrl" : {
+    "_id" : "wm-kendoTableSourceUrl-wm.Variable-1520942041831",
+    "name" : "fetchUrl",
     "owner" : "Page",
     "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:fetch",
+      "type" : "string"
+    } ],
     "dataSet" : {
-      "en" : "English"
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "kendoTableId" : {
+    "_id" : "wm-kendoTableId-wm.Variable-1520940590561",
+    "name" : "kendoTableId",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:kendotableid",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "updateUrl" : {
+    "_id" : "wm-updateUrl-wm.Variable-1520952158186",
+    "name" : "updateUrl",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:update",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : ""
     },
     "type" : "string",
     "isList" : false,

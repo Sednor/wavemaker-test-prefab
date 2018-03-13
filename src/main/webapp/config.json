@@ -1,15 +1,48 @@
 {
-    "displayName": "kendo data table",
-    "group": "",
-    "templateUrl": "/pages/Main/Main.html",
-    "controllerUrl": "/pages/Main/Main.js",
-    "variablesUrl": "/pages/Main/Main.variables.json",
-    "iconUrl": "/resources/images/imagelists/prefab-icon.png",
-    "resources": {
-        "styles": [
-            "/pages/Main/Main.css"
-        ],
-        "scripts": []
+  "displayName" : "kendo data table",
+  "group" : "",
+  "templateUrl" : "/pages/Main/Main.html",
+  "controllerUrl" : "/pages/Main/Main.js",
+  "variablesUrl" : "/pages/Main/Main.variables.json",
+  "iconUrl" : "/resources/images/imagelists/prefab-icon.png",
+  "resources" : {
+    "styles" : [ "/pages/Main/Main.css", "/resources/kendo.common.min.css", "/resources/kendo.rtl.min.css", "/resources/kendo.mobile.all.min.css", "/resources/kendo.silver.min.css" ],
+    "scripts" : [ "/resources/jquery.js", "/resources/kendo.all.min.js" ],
+    "modules" : [ ]
+  },
+  "properties" : {
+    "kendotableid" : {
+      "type" : "string",
+      "displayName" : "TableId",
+      "helpText" : "table id",
+      "bindable" : "in-bound",
+      "value" : "kendo-table",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
     },
-    "properties": {}
+    "fetch" : {
+      "type" : "string",
+      "displayName" : "fetchUrl",
+      "bindable" : "in-bound",
+      "value" : "services/salesdb/Channels",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    },
+    "renderTable" : {
+      "type" : "method",
+      "displayName" : "Rendertable",
+      "method" : "renderTable"
+    },
+    "update" : {
+      "type" : "string",
+      "displayName" : "updateUrl",
+      "bindable" : "in-bound",
+      "value" : "services/salesdb/Channels",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    }
+  }
 }

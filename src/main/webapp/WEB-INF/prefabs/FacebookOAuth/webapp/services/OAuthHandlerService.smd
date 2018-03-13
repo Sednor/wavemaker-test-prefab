@@ -1,0 +1,40 @@
+{
+	"methods": [{
+		"operationType": null,
+		"name": "callback",
+		"parameters": [{
+			"name": "request",
+			"type": "javax.servlet.http.HttpServletRequest"
+		}, {
+			"name": "response",
+			"type": "javax.servlet.http.HttpServletResponse"
+		}],
+		"returnType": null
+	}, {
+		"operationType": null,
+		"name": "getAccessToken",
+		"parameters": [{
+			"name": "request",
+			"type": "javax.servlet.http.HttpServletRequest"
+		}],
+		"returnType": "java.lang.String"
+	}, {
+		"operationType": null,
+		"name": "getCallbackURL",
+		"parameters": [{
+			"name": "request",
+			"type": "javax.servlet.http.HttpServletRequest"
+		}],
+		"returnType": "java.lang.String"
+	}, {
+		"operationType": null,
+		"name": "getLoginURL",
+		"parameters": [{
+			"name": "request",
+			"type": "javax.servlet.http.HttpServletRequest"
+		}],
+		"returnType": "java.lang.String"
+	}],
+	"serviceURL": "OAuthHandlerService.json",
+	"serviceType": "JSON-RPC"
+}

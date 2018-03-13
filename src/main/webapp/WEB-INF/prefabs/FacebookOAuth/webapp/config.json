@@ -1,0 +1,91 @@
+{
+  "displayName" : "facebook",
+  "group" : "OAuth",
+  "templateUrl" : "/pages/Main/Main.html",
+  "controllerUrl" : "/pages/Main/Main.js",
+  "variablesUrl" : "/pages/Main/Main.variables.json",
+  "iconUrl" : "/resources/images/imagelists/fb.png",
+  "resources" : {
+    "styles" : [ "/pages/Main/Main.css" ],
+    "scripts" : [ ],
+    "modules" : [ ]
+  },
+  "properties" : {
+    "accesstoken" : {
+      "type" : "string",
+      "bindable" : "out-bound",
+      "value" : "bind:Variables.OAuthHandlerServiceGetAccessToken.dataSet.value",
+      "widget" : "string",
+      "show" : false,
+      "disabled" : false
+    },
+    "loginmode" : {
+      "type" : "list",
+      "displayName" : "Login Mode",
+      "value" : "manual",
+      "options" : [ "auto", "manual" ],
+      "widget" : "list",
+      "show" : true,
+      "disabled" : false
+    },
+    "login" : {
+      "type" : "method",
+      "method" : "login"
+    },
+    "buttoncaption" : {
+      "type" : "string",
+      "displayName" : "Button Caption",
+      "helpText" : "This property sets the caption onto the facebook login button.",
+      "bindable" : "in-bound",
+      "value" : "Login with Facebook",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    },
+    "buttonclass" : {
+      "type" : "string",
+      "displayName" : "Button Class",
+      "helpText" : "This property sets the custom class onto the facebook login button",
+      "bindable" : "in-bound",
+      "value" : "",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    },
+    "callbackurl" : {
+      "type" : "string",
+      "displayName" : "Callback URL",
+      "bindable" : "out-bound",
+      "value" : "bind:Variables.OAuthHandlerServiceGetCallbackURL.dataSet.value",
+      "widget" : "string",
+      "show" : false,
+      "disabled" : false
+    },
+    "paramrequired" : {
+      "type" : "string",
+      "displayName" : "Parameter Required",
+      "bindable" : "out-bound",
+      "value" : "bind:'?access_token=' + accesstoken",
+      "widget" : "string",
+      "show" : false,
+      "disabled" : false
+    },
+    "loginsuccessmessage" : {
+      "type" : "string",
+      "displayName" : "Success Message",
+      "helpText" : "This property will set the text for the toaster after successful authorization",
+      "bindable" : "in-bound",
+      "value" : "Login Successful!",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    },
+    "onLoginsuccess" : {
+      "type" : "event",
+      "helpText" : "This event will be invoked after successful login",
+      "widget" : "eventlist",
+      "show" : true,
+      "disabled" : false
+    }
+  }
+}

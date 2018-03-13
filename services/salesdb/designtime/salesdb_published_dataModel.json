@@ -1,0 +1,90 @@
+{
+  "description" : "salesdb",
+  "draft" : false,
+  "name" : "salesdb",
+  "packageName" : "com.kendo_data_table.salesdb",
+  "tables" : [ {
+    "catalog" : "PUBLIC",
+    "columns" : [ {
+      "columnValue" : {
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null,
+        "type" : "user-defined"
+      },
+      "constraintList" : null,
+      "fieldName" : "id",
+      "foreignKey" : false,
+      "generatorType" : "identity",
+      "generatorValue" : null,
+      "hidden" : false,
+      "javaType" : "integer",
+      "length" : 255,
+      "name" : "ID",
+      "nullable" : false,
+      "oldName" : "ID",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : true,
+      "partOfUniqueKey" : true,
+      "period" : false,
+      "precision" : 10,
+      "primaryKey" : true,
+      "scale" : 0,
+      "sequenceSchema" : null,
+      "sqlType" : "number",
+      "unique" : true
+    }, {
+      "columnValue" : {
+        "insertable" : true,
+        "updatable" : true,
+        "defaultValue" : null,
+        "type" : "user-defined"
+      },
+      "constraintList" : null,
+      "fieldName" : "name",
+      "foreignKey" : false,
+      "generatorType" : "assigned",
+      "generatorValue" : null,
+      "hidden" : false,
+      "javaType" : "string",
+      "length" : 40,
+      "name" : "NAME",
+      "nullable" : false,
+      "oldName" : "NAME",
+      "partOfAnyRelation" : false,
+      "partOfForeignKey" : false,
+      "partOfPrimaryKey" : false,
+      "partOfUniqueKey" : false,
+      "period" : false,
+      "precision" : 19,
+      "primaryKey" : false,
+      "scale" : 2,
+      "sequenceSchema" : null,
+      "sqlType" : "string",
+      "unique" : false
+    } ],
+    "constraints" : [ ],
+    "entityName" : "Channels",
+    "filter" : null,
+    "fullyQualifiedName" : "com.kendo_data_table.salesdb.Channels",
+    "ignoreRefreshAfterInsert" : false,
+    "name" : "CHANNELS",
+    "oldName" : "CHANNELS",
+    "primaryKey" : {
+      "columns" : [ "ID" ],
+      "composite" : false,
+      "generator" : {
+        "generatorType" : "identity",
+        "generatorValue" : null,
+        "schemaName" : null
+      },
+      "name" : "SYS_PK_10092",
+      "virtual" : false
+    },
+    "relations" : [ ],
+    "schema" : "PUBLIC",
+    "temporals" : [ ],
+    "type" : "TABLE"
+  } ]
+}

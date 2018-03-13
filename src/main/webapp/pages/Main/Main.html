@@ -1,3 +1,5 @@
-<wm-page data-ng-controller="kendo_data_tableController">
-    <wm-content></wm-content>
+<wm-page data-ng-controller="Kendo_data_tableController" name="page1">
+    <wm-content name="content1">
+        <table ng-attr-id="{{ Variables.kendoTableId.getData().dataValue }}"></table>
+    </wm-content>
 </wm-page>

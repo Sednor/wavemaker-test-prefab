@@ -1,0 +1,34 @@
+{
+  "username" : "sa",
+  "password" : "7b6a43524a78700d662158",
+  "url" : "jdbc:hsqldb:file:{WebAppRoot}/WEB-INF/data/salesdb;shutdown=true;ifexists=true;hsqldb.lock_file=false;",
+  "driverClass" : "org.hsqldb.jdbcDriver",
+  "dialect" : "org.hibernate.dialect.HSQLDialect",
+  "serviceId" : "salesdb",
+  "packageName" : "com.kendo_data_table.salesdb",
+  "dbType" : "HSQLDB",
+  "host" : "localhost",
+  "dbName" : "salesdb",
+  "port" : "",
+  "schemaName" : "PUBLIC",
+  "tableFilter" : [ {
+    "table" : "CHANNELS",
+    "schema" : "PUBLIC"
+  } ],
+  "schemaFilter" : [ ".*" ],
+  "impersonateUser" : false,
+  "activeDirectoryDomain" : "",
+  "hbm2ddl" : "none",
+  "maxPageSize" : 100,
+  "minPoolSize" : 2,
+  "maxPoolSize" : 4,
+  "transactionTimeout" : 30,
+  "dataSourceType" : "WM_MANAGED_DATASOURCE",
+  "jndiName" : "",
+  "reloadInfo" : {
+    "reload" : false,
+    "reason" : null,
+    "message" : null
+  },
+  "readOnly" : true
+}

@@ -1,0 +1,146 @@
+{
+  "loginSuccess" : {
+    "_id" : "wm-loginSuccess-wm.NotificationVariable-1487222332822",
+    "name" : "loginSuccess",
+    "owner" : "Page",
+    "category" : "wm.NotificationVariable",
+    "dataBinding" : [ {
+      "target" : "content",
+      "value" : "inline",
+      "type" : "string"
+    }, {
+      "target" : "text",
+      "value" : "bind:loginsuccessmessage",
+      "type" : "string"
+    }, {
+      "target" : "duration",
+      "value" : "3000",
+      "type" : "number"
+    }, {
+      "target" : "class",
+      "value" : "Success",
+      "type" : "string"
+    }, {
+      "target" : "toasterPosition",
+      "value" : "bottom right",
+      "type" : "string"
+    } ],
+    "operation" : "toast"
+  },
+  "OAuthHandlerServiceCallback" : {
+    "_id" : "wm-wm.ServiceVariable1431009822685",
+    "name" : "OAuthHandlerServiceCallback",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : ".void",
+    "service" : "OAuthHandlerService",
+    "operation" : "callback",
+    "operationId" : "OAuthHandlerController_callback",
+    "serviceType" : "JavaService",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onSuccess" : "No Event",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true
+  },
+  "OAuthHandlerServiceGetAccessToken" : {
+    "_id" : "wm-wm.ServiceVariable1431009822682",
+    "name" : "OAuthHandlerServiceGetAccessToken",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "java.lang.String",
+    "service" : "OAuthHandlerService",
+    "operation" : "getAccessToken",
+    "operationId" : "OAuthHandlerController_getAccessToken",
+    "serviceType" : "JavaService",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onSuccess" : "OAuthHandlerServiceGetAccessTokenonSuccess($event, $scope)",
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true
+  },
+  "OAuthHandlerServiceGetCallbackURL" : {
+    "_id" : "wm-wm.ServiceVariable1431009822680",
+    "name" : "OAuthHandlerServiceGetCallbackURL",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "java.lang.String",
+    "service" : "OAuthHandlerService",
+    "operation" : "getCallbackURL",
+    "operationId" : "OAuthHandlerController_getCallbackURL",
+    "serviceType" : "JavaService",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "startUpdate" : true,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true
+  },
+  "OAuthHandlerServiceGetLoginURL" : {
+    "_id" : "wm-wm.ServiceVariable1431009822685",
+    "name" : "OAuthHandlerServiceGetLoginURL",
+    "owner" : "Page",
+    "category" : "wm.ServiceVariable",
+    "dataBinding" : [ ],
+    "type" : "java.lang.String",
+    "service" : "OAuthHandlerService",
+    "operation" : "getLoginURL",
+    "operationId" : "OAuthHandlerController_getLoginURL",
+    "serviceType" : "JavaService",
+    "dataSet" : {
+      "dataValue" : ""
+    },
+    "isList" : false,
+    "firstRow" : 0,
+    "maxResults" : 20,
+    "designMaxResults" : 10,
+    "onSuccess" : "OAuthHandlerServiceGetLoginURLonSuccess($event, $scope)",
+    "startUpdate" : false,
+    "autoUpdate" : false,
+    "inFlightBehavior" : "executeLast",
+    "transformationRequired" : false,
+    "saveInPhonegap" : false,
+    "isDefault" : true
+  },
+  "supportedLocale" : {
+    "_id" : "wm-wm.Variable1402640443182",
+    "name" : "supportedLocale",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "en" : "English"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  }
+}
