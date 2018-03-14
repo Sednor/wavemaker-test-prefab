@@ -18,11 +18,11 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
     $scope.onPageReady = function() {
         const COLUMNS = [];
         const FIELDS = {};
+        const DATA_ID = $scope.Variables.dataId.getData().dataValue;
         const EDITABLE = $scope.Variables.editable.getData().dataValue;
         const REMOVABLE = $scope.Variables.removable.getData().dataValue;
         const CREATE = $scope.Variables.create.getData().dataValue;
 
-        console.log('asdasd');
         $scope.Variables.columns.getData().dataValue.forEach(column => {
             COLUMNS.push({
                 field: column.name,
@@ -47,13 +47,13 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
                         contentType: "application/json"
                     },
                     update: {
-                        url: options => `${$scope.Variables.updateUrl.getData().dataValue}/${options.id}`,
+                        url: options => `${$scope.Variables.updateUrl.getData().dataValue}/${options[DATA_ID]}`,
                         type: "put",
                         dataType: 'json',
                         contentType: "application/json"
                     },
                     destroy: {
-                        url: options => `${$scope.Variables.updateUrl.getData().dataValue}/${options.id}`,
+                        url: options => `${$scope.Variables.updateUrl.getData().dataValue}/${options[DATA_ID]}`,
                         type: "delete"
                     },
                     parameterMap: function(data, type) {
@@ -73,7 +73,7 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
                 schema: {
                     data: "content",
                     model: {
-                        id: $scope.Variables.dataId.getData().dataValue,
+                        id: DATA_ID,
                         fields: FIELDS
                     }
                 },
