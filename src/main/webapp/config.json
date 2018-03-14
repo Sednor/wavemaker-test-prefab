@@ -48,7 +48,7 @@
       "type" : "string",
       "displayName" : "columns",
       "bindable" : "in-bound",
-      "isList" : false,
+      "isList" : true,
       "value" : "[]",
       "widget" : "string",
       "show" : true,
