@@ -79,6 +79,13 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
                 },
                 serverPaging: true,
                 pageSize: 2,
+                onRequestEnd: function(e) {
+                    if (e.type == "destroy") {
+                        if (!e.response.Errors) {
+                            e.sender.read();
+                        }
+                    }
+                }
             },
             columns: [].concat(COLUMNS, [{
                 command: [].concat(EDITABLE ? ["edit"] : [], REMOVABLE ? ["destroy"] : [])
