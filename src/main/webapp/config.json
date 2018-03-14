@@ -45,11 +45,46 @@
       "disabled" : false
     },
     "columns" : {
-      "type" : "object",
-      "displayName" : "Columns",
+      "type" : "string",
+      "displayName" : "columns",
       "bindable" : "in-bound",
-      "isList" : true,
-      "value" : "bind:Variables.columns.dataSet",
+      "isList" : false,
+      "value" : "[]",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    },
+    "dataid" : {
+      "type" : "string",
+      "displayName" : "dataId",
+      "bindable" : "in-bound",
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    },
+    "editable" : {
+      "type" : "boolean",
+      "displayName" : "editable",
+      "bindable" : "in-bound",
+      "value" : true,
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    },
+    "removable" : {
+      "type" : "boolean",
+      "displayName" : "removable",
+      "bindable" : "in-bound",
+      "value" : true,
+      "widget" : "string",
+      "show" : true,
+      "disabled" : false
+    },
+    "create" : {
+      "type" : "boolean",
+      "displayName" : "create",
+      "bindable" : "in-bound",
+      "value" : true,
       "widget" : "string",
       "show" : true,
       "disabled" : false

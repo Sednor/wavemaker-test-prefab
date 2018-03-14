@@ -16,7 +16,23 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
     $scope.onInitPrefab = function() {};
 
     $scope.onPageReady = function() {
-        let once = false;
+        const COLUMNS = [];
+        const FIELDS = {};
+        const EDITABLE = $scope.Variables.editable.getData().dataValue;
+        const REMOVABLE = $scope.Variables.removable.getData().dataValue;
+        const CREATE = $scope.Variables.create.getData().dataValue;
+
+        console.log('asdasd');
+        JSON.parse($scope.Variables.columns.getData().dataValue).forEach(column => {
+            COLUMNS.push({
+                field: column.name,
+                title: column.title
+            });
+            FIELDS[column.name] = {
+                type: column.type,
+                editable: column.editable
+            };
+        });
 
         $(`#${$scope.Variables.kendoTableId.getData().dataValue}`).kendoGrid({
             dataSource: {
@@ -58,27 +74,14 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
                     data: "content",
                     model: {
                         id: $scope.Variables.dataId.getData().dataValue,
-                        fields: $scope.Variables.tableColumns.getData().dataValue
+                        fields: FIELDS
                     }
                 },
                 serverPaging: true,
                 pageSize: 2,
             },
-            dataBound: function() {
-                if (once) {
-                    return;
-                }
-                const OPTIONS = this.getOptions();
-
-                console.log(OPTIONS.schema);
-                this.setOptions(Object.assign({}, OPTIONS, {
-                    columns: [].concat(OPTIONS.columns, {
-                        command: ["edit", "destroy"]
-                    })
-                }));
-                once = true;
-            },
-            toolbar: ["create"],
+            columns: [].concat(COLUMNS, EDITABLE ? ["edit"] : [], REMOVABLE ? ["destroy"] : []),
+            toolbar: CREATE ? ["create"] : [],
             pageable: {
                 refresh: true,
                 pageSizes: true,

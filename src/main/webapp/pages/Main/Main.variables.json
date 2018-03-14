@@ -1,16 +1,68 @@
 {
   "columns" : {
-    "_id" : "wm-columns-wm.Variable-1521017851713",
+    "_id" : "wm-columns-wm.Variable-1521020194907",
     "name" : "columns",
     "owner" : "Page",
     "category" : "wm.Variable",
-    "dataBinding" : [ ],
-    "dataSet" : [ {
-      "name" : "",
-      "title" : ""
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:columns",
+      "type" : "string"
     } ],
+    "dataSet" : {
+      "dataValue" : ""
+    },
     "type" : "string",
-    "isList" : true,
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "create" : {
+    "_id" : "wm-create-wm.Variable-1521021821889",
+    "name" : "create",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:create"
+    } ],
+    "dataSet" : {
+      "dataValue" : true
+    },
+    "type" : "boolean",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "dataId" : {
+    "_id" : "wm-dataId-wm.Variable-1521018634134",
+    "name" : "dataId",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:dataid",
+      "type" : "string"
+    } ],
+    "dataSet" : {
+      "dataValue" : "id"
+    },
+    "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "editable" : {
+    "_id" : "wm-editable-wm.Variable-1521021798281",
+    "name" : "editable",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:editable"
+    } ],
+    "dataSet" : {
+      "dataValue" : true
+    },
+    "type" : "boolean",
+    "isList" : false,
     "saveInPhonegap" : false
   },
   "fetchUrl" : {
@@ -44,6 +96,22 @@
       "dataValue" : ""
     },
     "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "removable" : {
+    "_id" : "wm-removable-wm.Variable-1521021854982",
+    "name" : "removable",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ {
+      "target" : "dataValue",
+      "value" : "bind:removable"
+    } ],
+    "dataSet" : {
+      "dataValue" : true
+    },
+    "type" : "boolean",
     "isList" : false,
     "saveInPhonegap" : false
   },
