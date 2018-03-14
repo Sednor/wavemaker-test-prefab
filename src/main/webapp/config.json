@@ -48,6 +48,8 @@
       "type" : "object",
       "displayName" : "Columns",
       "bindable" : "in-bound",
+      "isList" : true,
+      "value" : "bind:Variables.columns.dataSet",
       "widget" : "string",
       "show" : true,
       "disabled" : false

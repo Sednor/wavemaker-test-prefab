@@ -1,4 +1,18 @@
 {
+  "columns" : {
+    "_id" : "wm-columns-wm.Variable-1521017851713",
+    "name" : "columns",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : [ {
+      "name" : "",
+      "title" : ""
+    } ],
+    "type" : "string",
+    "isList" : true,
+    "saveInPhonegap" : false
+  },
   "fetchUrl" : {
     "_id" : "wm-kendoTableSourceUrl-wm.Variable-1520942041831",
     "name" : "fetchUrl",
@@ -30,6 +44,20 @@
       "dataValue" : ""
     },
     "type" : "string",
+    "isList" : false,
+    "saveInPhonegap" : false
+  },
+  "testEntry" : {
+    "_id" : "wm-testEntry-wm.Variable-1520960279925",
+    "name" : "testEntry",
+    "owner" : "Page",
+    "category" : "wm.Variable",
+    "dataBinding" : [ ],
+    "dataSet" : {
+      "name" : "name0",
+      "dataValue" : "dataValue0"
+    },
+    "type" : "entry",
     "isList" : false,
     "saveInPhonegap" : false
   },
