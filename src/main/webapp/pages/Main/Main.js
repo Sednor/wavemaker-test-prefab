@@ -23,7 +23,7 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
         const CREATE = $scope.Variables.create.getData().dataValue;
 
         console.log('asdasd');
-        JSON.parse($scope.Variables.columns.getData().dataValue).forEach(column => {
+        $scope.Variables.columns.getData().dataValue.forEach(column => {
             COLUMNS.push({
                 field: column.name,
                 title: column.title
@@ -80,7 +80,9 @@ Application.$controller("Kendo_data_tableController", ["$scope", function($scope
                 serverPaging: true,
                 pageSize: 2,
             },
-            columns: [].concat(COLUMNS, EDITABLE ? ["edit"] : [], REMOVABLE ? ["destroy"] : []),
+            columns: [].concat(COLUMNS, [{
+                command: [].concat(EDITABLE ? ["edit"] : [], REMOVABLE ? ["destroy"] : [])
+            }]),
             toolbar: CREATE ? ["create"] : [],
             pageable: {
                 refresh: true,
